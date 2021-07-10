@@ -1,0 +1,19 @@
+[
+ {
+  "Monitor SFOS basic setup logs": [
+   "Filename: ta_configuration.log, Error detected file count: 134",
+   "Filename: ta_configure_interfaces.log, Error detected file count: 13"
+  ]
+ },
+ {
+  "Monitor SFOS basic setup logs": [
+   "Filename: ta_configuration.log, Error detected file count: 134",
+   "Filename: ta_configure_interfaces.log, Error detected file count: 13"
+  ]
+ },
+ {
+  "Monitor XDB logs": [
+   "Filename: ta-xdb.log, Error detected file count: 0"
+  ]
+ }
+]
