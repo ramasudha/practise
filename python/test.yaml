@@ -1,0 +1,33 @@
+--- 
+name: "Send TA failure logs to mentioned receipts"
+email:
+    sender: siramdasu.ramasudha@sophos.com
+    recepients:
+      - siramdasu.ramasudha@sophos.com
+
+smtp:
+    smtp-ip: mx.green.sophos
+    smtp-port: 25
+
+tasks:
+  - name: "Monitor SFOS basic setup logs"
+    attachment_filename: sfos_basicsetup.log
+    path: /opt/TA/agentlog/
+    files:
+      - ta_configuration.log
+      - ta_configure_interfaces.log
+    date_format: yy/mm/dd
+    log_search: today
+    search_string:
+      - "An error occoured! Removing lockfile and reboot"
+      - "Not Done"
+
+ # - name: "Monitor XDB logs"
+ #   attachment_filename: ta_xdb.log
+ #   path: /var/log
+ #   files:
+ #     - ta-xdb.log
+ #   date_format: yyyy-mm-dd
+ #   log_search: today
+ #   search_string:
+ #     - ERROR
