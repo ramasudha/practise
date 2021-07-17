@@ -1,0 +1,48 @@
+	                                        Syntax
+
+
+/* Keyword list */
+https://www.w3schools.com/sql/sql_ref_keywords.asp
+
+/* SQL Tutorial */
+https://www.javatpoint.com/sql-tutorial
+
+ /*if u want use existing database*/
+use <database name>
+
+/*if u want create table*/
+create table <R10>
+(
+ID int,  
+Name1 varchar,  
+Age int,  
+Limit int
+);
+
+
+/* To store data in the table with the values */
+insert into R10(ID,Name1,Age,Limit) values (1,'a',40,70);
+
+
+/* To delete the complete table*/
+use <database>;
+DROP TABLE <Table name>;
+
+/* To delete all the rows in the table and freeup the table space
+   The structure will remain intact
+*/
+truncate table <table name>;
+
+
+
+
+
+
+/* List all the tables form the DB */
+SELECT TABLE_NAME 
+FROM [<DATABASE_NAME>].INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_TYPE = 'BASE TABLE'
+
+
+
+
