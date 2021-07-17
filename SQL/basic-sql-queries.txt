@@ -7,8 +7,22 @@ https://www.w3schools.com/sql/sql_ref_keywords.asp
 /* SQL Tutorial */
 https://www.javatpoint.com/sql-tutorial
 
+
+/* To create Database */
+CREATE DATABASE <database_name>; 
+
+/* To Delete database */
+DROP DATABASE <database_name>; 
+
+/* To Rename database */
+ALTER DATABASE <old_name> MODIFY NAME = <new_name> ;
+
  /*if u want use existing database*/
-use <database name>
+use <database name>;
+
+/*
+Table is a collection of data, organized in terms of rows and columns. In DBMS term, table is known as relation and row as tuple.
+*?
 
 /*if u want create table*/
 create table <R10>
@@ -18,6 +32,53 @@ Name1 varchar,
 Age int,  
 Limit int
 );
+
+
+/* To delete the table */
+DROP TABLE "table_name";
+
+
+/* to delete the rows/columns */
+DELETE FROM <table_name> [WHERE <column> == <value>]; /* execute on system */
+
+/* To delete complete table */
+DELETE FROM <table_name>;  /* execute on system */
+
+/* 
+Note: The rollback process is not possible after truncate table statement. Once you truncate a table you cannot use a flashback table statement to retrieve the content of the table.
+*/
+TRUNCATE TABLE table_name;  /* execute on system */
+
+/* TO rename table name */
+ALTER TABLE STUDENTS RENAME TO ARTISTS;  
+
+/* Copy table A to table B, all the rows and colummn will be copied */
+SELECT * INTO <destination_table> FROM <source_table> ;  /* execute on system */
+
+/* Temp tables. /* execute on system */
+1. local Temp variable
+2. Global Temp variable
+*/
+CREATE TABLE #local temp table (  
+User id int,  
+Username varchar (50),  
+User address varchar (150)  
+) 
+
+CREATE TABLE ##new global temp table (  
+User id int,  
+User name varchar (50),  
+User address varchar (150)  
+) 
+
+/* Alter table Columns(ADD/delete/update/rename) etc., */
+ALTER TABLE table_name ADD column_name column-definition;  /* execute on system */
+ALTER TABLE Shippers MODIFY (test varchar);  
+ALTER TABLE table_name DROP COLUMN column_name; 
+ALTER TABLE table_name  
+RENAME COLUMN old_name to new_name;  
+
+/* */
 
 
 /* To store data in the table with the values */
