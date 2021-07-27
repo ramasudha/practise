@@ -121,3 +121,13 @@ SELECT * FROM <table> ORDER BY <Country>;
 /The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword./
 SELECT * FROM <table> ORDER BY <Country> DESC;
 
+/*In simple words, we can say that SELECT UNIQUE statement is used to retrieve a unique or distinct element from the table.
+*/
+SELECT DISTINCT <column_name> FROM <Name of table>;  
+
+/it is very useful to count the number of rows in a table having enormous data/
+SELECT COUNT (*) FROM <Name of table>;  
+
+	
+/The SQL SELECT TOP Statement is used to select top data from a table/
+SELECT TOP 2 * FROM <name of table>;
