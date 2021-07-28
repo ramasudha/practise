@@ -133,4 +133,4 @@ SELECT COUNT (*) FROM <Name of table>;
 SELECT TOP 2 * FROM <name of table>;
 
 /* To update a specific column value in the row */
-UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <= <value>;
+UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <any arthmatic operators> <value>;
