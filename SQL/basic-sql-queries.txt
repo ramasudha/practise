@@ -132,4 +132,5 @@ SELECT COUNT (*) FROM <Name of table>;
 /The SQL SELECT TOP Statement is used to select top data from a table/
 SELECT TOP 2 * FROM <name of table>;
 
-/* ramana changes*/
+/* To update a specific column value in the row */
+UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <= <value>;
