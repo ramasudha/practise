@@ -134,3 +134,6 @@ SELECT TOP 2 * FROM <name of table>;
 
 /* To update a specific column value in the row */
 UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <any arthmatic operators> <value>;
+
+/* To list all the columns in the table use '*' after the select */
+SELECT * from <TABLE NAME>;
