@@ -135,6 +135,8 @@ SELECT TOP 2 * FROM <name of table>;
 /* To update a specific column value in the row */
 UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <any arthmatic operators> <value>;
 
+/* To list all the columns in the table use '*' after the select */
+SELECT * from <TABLE NAME>;
 6.
 /*The SQL COUNT() function is used to return the number of rows in a query.*/
 SELECT COUNT(*) FROM <Name of table>;
@@ -167,4 +169,3 @@ SELECT * FROM <Table name> ORDER BY <Column name>;
 13.
 /*To set row data in descending order/
 SELECT * FROM <Table name> ORDER BY <Column name> DESC ;
-
