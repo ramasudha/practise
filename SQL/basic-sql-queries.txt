@@ -169,3 +169,6 @@ SELECT * FROM <Table name> ORDER BY <Column name>;
 13.
 /*To set row data in descending order/
 SELECT * FROM <Table name> ORDER BY <Column name> DESC ;
+/*Using where to list the match row data*/
+Select * from  <Table name> where <Column_name> = Any_Row_Value
+
