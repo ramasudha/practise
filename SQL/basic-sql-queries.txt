@@ -137,3 +137,35 @@ UPDATE <Table Name> SET <Clm Name> = <'Alter value'> where <Clm name> <any arthm
 
 /* To list all the columns in the table use '*' after the select */
 SELECT * from <TABLE NAME>;
+6.
+/*The SQL COUNT() function is used to return the number of rows in a query.*/
+SELECT COUNT(*) FROM <Name of table>;
+
+7.
+/*To add (sum) the values in specific Row*/
+SELECT SUM <(Column name)> FROM <Table name>  WHERE conditions; 
+SELECT SUM <(Column name)> FROM <Table name>:
+
+8.
+/*AS command is used to rename a column or table with an alias*/
+SELECT <Column name> AS <New column name> from SchoolA;
+
+9.
+/*The AND command is used with WHERE to only include rows where both conditions is true.*/
+Select * from <Table name> where <Column name> = <Data in Row> AND <Column name> = <Data in Row>;
+
+10.
+/*To see the structure of the table*/
+EXEC sp_help <table name>;
+
+11.
+/*GROUP BY statement groups rows that have the same values into summary rows*/
+SELECT COUNT <(column name)>, <column name> FROM <Table name> GROUP BY <column name>;
+
+12.
+/*To set row data in aascending order*/
+SELECT * FROM <Table name> ORDER BY <Column name>;
+
+13.
+/*To set row data in descending order/
+SELECT * FROM <Table name> ORDER BY <Column name> DESC ;
