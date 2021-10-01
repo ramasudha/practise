@@ -131,3 +131,5 @@ SELECT COUNT (*) FROM <Name of table>;
 	
 /The SQL SELECT TOP Statement is used to select top data from a table/
 SELECT TOP 2 * FROM <name of table>;
+/*If you update multiple ROWS using WHERE clause*/
+Update <Table name> SET <Column name>='Value' where Column name in (values, values);
