@@ -133,3 +133,5 @@ SELECT COUNT (*) FROM <Name of table>;
 SELECT TOP 2 * FROM <name of table>;
 /*If you update multiple ROWS using WHERE clause*/
 Update <Table name> SET <Column name>='Value' where Column name in (values, values);
+/*Delete the NULL rows in table*/
+Delete from <Table name> where <Column name> is null;
