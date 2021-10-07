@@ -135,3 +135,195 @@ SELECT TOP 2 * FROM <name of table>;
 Update <Table name> SET <Column name>='Value' where Column name in (values, values);
 /*Delete the NULL rows in table*/
 Delete from <Table name> where <Column name> is null;
+
+
+1.	/*TO Create Database*/
+
+CREATE Database <Database Name>
+
+Ex: CREATE Database TestDB1
+
+2.	/*TO Use exciting Database*/
+Use <Database Name>
+
+Ex: Use TestDB1
+
+3.	/*Create Table*/
+create table <Table Name>
+
+Ex:create table TestTable1
+(
+Emp_ID int,  
+Last_Name varchar(50) NOT NULL,  
+First_Name varchar(50) NOT NULL, 
+);
+4.	/*Select all Tables*/
+SELECT TABLE_NAME 
+FROM [<Database Name>].INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_TYPE = 'BASE TABLE'
+
+5.	/*To Add Column in table*/
+ALTER Table <Table Name> ADD <Column Name> <Data Type>
+Ex: ALTER Table TestTable1 ADD Age int
+6.	/*To Drop Column (Delete Column)in table*/
+    ALTER Table <Table Name> DROP Column <Column Name>
+Ex: ALTER Table TestTable1 DROP Column Age
+7.	/*To Alter Column data type in table*/
+ALTER Table <Table Name> ALTER Column <Column Name> <Datatype>
+EX: ALTER Table TestTable1 ALTER Column Emp_ID Char(10)
+8.	/*To DROP Table (All table data also will deleted)*/
+   Drop Table <Table Name>
+   Ex: Drop Table TestTable2
+9.	/* To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add key for single in Column only while creating table)*/
+Ex: create table TestTable1
+(
+Emp_ID int PRIMARY KEY,  
+Last_Name varchar(50) NOT NULL,  
+First_Name varchar(50) NOT NULL, 
+);
+
+10.	/*To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add 2 or more key in Column only)*/
+Ex: create table EMP
+(
+ Last_Name varchar(50) NOT NULL,  
+ First_Name varchar(50) NOT NULL, 
+Constraint PK_TestTabl PRIMARY KEY (Last_Name, First_Name)
+);
+
+11.	/* To Create PRIMARYKEY for Column in Table after Created a Table(Note: Below is for add Single key in Column only After created table)*/
+Ex: create table EMP15
+(
+Emp_ID int  NOT NULL,  
+Last_Name varchar(50) NOT NULL,  
+First_Name varchar(50) NOT NULL, 
+);
+ALTER Table EMP15
+ADD CONSTRAINT Emp_Primarykey Primary Key (Emp_ID);
+12.	/*Creating the FOREIGNKEY - Foreign Key is a column that refers to the primary key/unique key of other table (We link the 2 tables with this operation)*/
+
+EX: create table Product
+(
+Prod_ID int PRIMARY KeY,  
+Prod_Name varchar(50) NOT NULL,  
+Category varchar(50) 
+);
+
+ CREATE Table Orders
+(
+Order_ID Int Primary Key,
+Prod_ID Int NOT NULL,
+Quantity int,
+);
+
+ALTER Table Orders
+ADD CONSTRAINT fk_Prodcut_id1
+FOREIGN Key(Prod_ID)
+References Product (Prod_id);
+13.	/*INSERT Command is used to Insert data /Record into the table*/
+INSERT into <Table Name> (ID,Name1,Age,Limit) values (001,'Mahesh',40,75)
+INSERT into <Table Name> values (003,'RRR',77,90), (004,'TT',77,90)
+14.	/*INSERT-AS-SELECT statement allows to insert into table using the ALL input from another table*/
+INSERT INTO <New Table name> (SELECT <Column name> from <Old Table name>)
+15.	/*INSERT-AS-SELECT with WHERE Condition statement allows to insert into table using the input from another table*/
+INSERT INTO <New Table name> (SELECT <Column name> from <Old Table name> WHERE Column <Row Condition>)
+16.	/*INSERT-AS-SELECT statement allows to insert into table using the input from another table – This is for Specified columns*/
+INSERT INTO <New Table name> (<Column1,Column2..>) (SELECT (<Column1,Column2..> from Old Table Name)
+
+17.	/*Update or change the Row value in particular Column*/
+UPDATE <Table name> SET <Column name> = <Row Value> WHERE <Column name> = <Row Value>
+Ex: UPDATE SchoolB SET Age = 1 WHERE ID=3;
+
+18.	/*DELETE command help to delete Rows/Records in from database Table*/
+DELETE from <Table Name>  /*All data in Table*/
+DELATE From <Table Name> WHERE <Condition>
+
+19.	/*SELECT statement is used to select  the required data in Table*/ 
+SELECT * from <Table name>    /*All data from table*/
+SELECT TOP (3) * FROM <Table Name>   /*Top 3 data from table, Value 3 we can change*/
+SELECT <Column1, Column2> FROM <Table Name> /*If required specified columns*/
+SELECT TOP (3)<Column1, Column2> FROM <Table Name> /*If required specified columns*/
+
+20.	/*ORDER BY – Data can get ASC or DESC*/
+SELECT * FROM <Table Name> ORDER BY <Column Name> ASC
+SELECT * FROM <Table Name> ORDER BY <Column Name> DESC
+SELECT TOP (2) * FROM <Table Name> ORDER BY <Column Name> DESC
+
+21.	/*AND – Used to combine2 conditions and fetch the results which satisfy both conditions*/
+SELECT * FROM <Table Name> WHERE <Column Name> = <Value> AND <Column Name> = <Value>
+22.	/*OR – Used to combine 2 or more conditions & it fetches results with satisfy any one of conditions*/
+SELECT * FROM <Table Name> WHERE <Column Name> = <Value> OR <Column Name> = <Value>
+23.	/*NOT – Used to negate conditions & fetch opposite of results with satisfy conditions*/
+SELECT * FROM <Table Name> WHERE <Column Name> NOT IN <Column Name>
+24.	/*BETWEEN – Used to search for values that are within a set of values*/
+SELECT * FROM <Table Name> WHERE <Column Name> BETWEEN <Value> AND <Value> 
+EX : SELECT * FROM EMPLOYEE WHERE Salary BETWEEN 1000 AND 5000
+25.	/*IN – It is used when we want to check/fetch values from multiple values in single statement*/
+SELECT * From <Table name> WHERE <Column name> IN (Values, Values) 
+26.	/* ” > Greater-then” – Fetches values greater then given values*/
+SELECT * From <Table name> WHERE <Column name>  > 20000
+27.	/* ” < Less-then” – Fetches values less then given values*/
+SELECT * From <Table name> WHERE <Column name>  < 20000
+28.	/* ” = ” – Fetches values equal to  given values*/
+SELECT * From <Table name> WHERE <Column name>  = 20000
+29.	/* ” <= ” – Fetches values less then or equal to given values*/
+SELECT * From <Table name> WHERE <Column name>  =< 20000
+30.	/* ” >= ” – Fetches values greater then or equal to given values*/
+SELECT * From <Table name> WHERE <Column name>  >= 20000
+31.	/*LIKE – Used to perform wild card searches of valid search string values*/
+SELECT * From <Table name> WHERE <Column name> LIKE ‘%C’ (Here C is last letter of value)
+SELECT * From <Table name> WHERE <Column name> LIKE ‘C%’ (Here C is start letter of value)
+SELECT * From <Table name> WHERE <Column name> LIKE ‘C%C’ (Here C is start & End letter of value)
+32.	/*IS operator is used to search the NULL ot NOT NULL vales in Table*/
+SELECT * From <Table name> WHERE <Column name> IS NULL
+SELECT * From <Table name> WHERE <Column name> IS NOT NULL
+33.	/*Inner Join OR Simple join used to retrieve the common data from 2 or more tables */
+SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>Inner join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
+
+Ex: SELECT School.age, collage.rank from School Inner join collage ON School.Names = Collage.Peru;
+
+34.	/* This Left join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join.*/
+SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>Left join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
+35.	/* This Right join returns all the rows of the table on the Right side of the join and matching rows for the table on the left side of join.*/
+SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>right join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
+36.	/*Left Outer Join : this is returns rows to the left (t1) even if there are no rows on the right (t2) of the clause*/
+SELECT <Column list>from <Table Name1> AS t1 Left outer join <Table name2> as t2 ON t1.column.name = t2.column_name;
+37.	/*This  RIGHT OUTER JOIN  returns all the rows from right table are combined with the matching rows of left table .If you get no column matching in the left table .it returns null value. */
+SELECT <Column list>from <Table Name1> AS t1 Right outer join <Table name2> as t2 ON t1.column.name = t2.column_name;
+38.	/* The FULL OUTER JOIN keyword returns all matching records from both tables whether the other table matches or not*/
+SELECT <Column list>from <Table Name1> AS t1 FULL OUTER JOIN  <Table name2> as t2 ON t1.column.name = t2.column_name;
+39.	/* The CROSS JOIN is used to generate a paired combination of each row of the first table with each row of the second table */
+SELECT <Column list>from <Table Name1> AS t1 CROSS JOIN  <Table name2> as t2;
+40.	/*Stored Procedure*/
+AS
+<sql_statement>
+GO;
+EXEC <procedure_name>;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
