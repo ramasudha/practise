@@ -186,3 +186,35 @@ GO;
 
 41. /*To Execute the stored procedure*/
 EXEC <procedure_name>;
+
+42. /*The SQL DISTINCT command is used with SELECT key word to retrieve only distinct or unique data*/
+(There is no difference between DISTINCT and UNIQUE)
+SELECT DISTINCT column_name ,column_name  FROM  table_name;
+
+43. /*The SQL COUNT() is a function that returns the number of records of the table in the output*/
+SELECT COUNT(column_name) FROM table_name;  
+
+44. /*The SQL FIRST() function is used to return the first value of the selected column*/
+SELECT FIRST(column_name) FROM table_name;  
+
+45. /*The LAST() function is used to return the last value of the specified column*/
+SELECT LAST (column_name) FROM table_name;  
+
+46. /*SELECT RANDOM() function returns the random row*/
+SELECT TOP 1 column FROM table  ORDER BY NEW ID()
+
+47. /*SQL IN is an operator used in a SQL query to help reduce the need to use multiple SQL "OR" conditions*/
+SELECT * FROM students  WHERE students_name IN ( Amit , Raghav, Rajeev)  
+
+48. /*DATE is used to retrieve a date from a database*/
+SELECT * FROM  table-name WHERE your date-column >= '2013-12-12'
+
+49./* It is used in a SQL query to return summed value of an expression*/
+SELECT SUM (expression) FROM tables  WHERE conditions;
+
+50. /*The DESC command is used to sort the data returned in descending order*/
+SELECT*FROMCustomersORDER BY CustomerName DESC;
+
+51. /*The ASC command is used to sort the data returned in descending order*/
+SELECT*FROMCustomersORDER BY CustomerName ASC;
+
