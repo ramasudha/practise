@@ -218,3 +218,21 @@ SELECT*FROMCustomersORDER BY CustomerName DESC;
 51. /*The ASC command is used to sort the data returned in descending order*/
 SELECT*FROMCustomersORDER BY CustomerName ASC;
 
+52. /*The AVG() function returns the average value of a numeric column*/
+SELECT AVG(column_name) FROM table_name WHERE condition;
+
+53./* SQL aliases are used to give a table, or a column in a table, a temporary name*/
+SELECT column_name AS alias_name FROM table_name;
+
+54. /*The CREATE INDEX statement is used to create indexes in tables*/
+CREATE INDEX index_name ON table_name (column1, column2, ...);
+
+55./* The CHECK constraint is used to limit the value range that can be placed in a column*/
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int CHECK (Age>=18)
+);
+
+
