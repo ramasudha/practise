@@ -1,12 +1,9 @@
-/*From Edureka tutorial*/
-1.	/*TO Create Database*/
+1.	/*TO Create Database*/                   From Edurake Tutorial
 CREATE Database <Database Name>
 Ex: CREATE Database TestDB1
-
 2.	/*TO Use exciting Database*/
 Use <Database Name>
 Ex: Use TestDB1
-
 3.	/*Create Table*/
 create table <Table Name>
 Ex:create table TestTable1
@@ -15,224 +12,267 @@ Emp_ID int,
 Last_Name varchar(50) NOT NULL,  
 First_Name varchar(50) NOT NULL, 
 );
-
 4.	/*Select list of tables in DB*/
 SELECT TABLE_NAME 
 FROM [<Database Name>].INFORMATION_SCHEMA.TABLES 
 WHERE TABLE_TYPE = 'BASE TABLE'   (OR) SELECT * from INFORMATION_SCHEMA.TABLES
-
 5.	/*To Add Column in table*/
 ALTER Table <Table Name> ADD <Column Name> <Data Type>
 Ex: ALTER Table TestTable1 ADD Age int
-
 6.	/*To Drop Column (Delete Column)in table*/
     ALTER Table <Table Name> DROP Column <Column Name>
 Ex: ALTER Table TestTable1 DROP Column Age
-
 7.	/*To Alter Column data type in table*/
 ALTER Table <Table Name> ALTER Column <Column Name> <Datatype>
 EX: ALTER Table TestTable1 ALTER Column Emp_ID Char(10)
-
 8.	/*To DROP Table (All table data also will deleted)*/
    Drop Table <Table Name>
    Ex: Drop Table TestTable2
-   
-9.	/* To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add key for single in Column only while creating table)*/
+Various Constrains:=================
+9. /* To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add key for single in Column only while creating table)*/
 Ex: create table TestTable1
 (
 Emp_ID int PRIMARY KEY,  
 Last_Name varchar(50) NOT NULL,  
 First_Name varchar(50) NOT NULL, 
 );
-
-10.	/*To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add 2 or more key in Column only)*/
+10./*To Create PRIMARYKEY for Column in Table while creating table (Note: Below is for add 2 or more key in Column only)*/
 Ex: create table EMP
 (
  Last_Name varchar(50) NOT NULL,  
  First_Name varchar(50) NOT NULL, 
 Constraint PK_TestTabl PRIMARY KEY (Last_Name, First_Name)
 );
-
-11.	/* To Create PRIMARYKEY for Column in Table after Created a Table(Note: Below is for add Single key in Column only After created table)*/
+11. /* To Create PRIMARYKEY for Column in Table after Created a Table (Note: Below is for add Single key in Column only after created table)*/
 Ex: create table EMP15
 (
-Emp_ID int  NOT NULL,  
+Emp_ID int NOT NULL,  
 Last_Name varchar(50) NOT NULL,  
 First_Name varchar(50) NOT NULL, 
 );
 ALTER Table EMP15
 ADD CONSTRAINT Emp_Primarykey Primary Key (Emp_ID);
+12. /*INSERT-AS-SELECT statement allows to insert into table using the ALL input from another table*/
+INSERT INTO <New Table name> (SELECT <Column name> from <Old Table name>)
 
-12.	/*Creating the FOREIGNKEY - Foreign Key is a column that refers to the primary key/unique key of other table (We link the 2 tables with this operation)*/
 
+13. /*Creating the FOREIGNKEY - Foreign Key is a column that refers to the primary key/unique key of other table (We link the 2 tables with this operation)*/
 EX: create table Product
 (
-Prod_ID int PRIMARY KeY,  
+Prod_ID int PRIMARY Key,  
 Prod_Name varchar(50) NOT NULL,  
 Category varchar(50) 
 );
-
  CREATE Table Orders
 (
 Order_ID Int Primary Key,
 Prod_ID Int NOT NULL,
 Quantity int,
 );
-
 ALTER Table Orders
 ADD CONSTRAINT fk_Prodcut_id1
-FOREIGN Key(Prod_ID)
-References Product (Prod_id);
-
-13.	/*INSERT Command is used to Insert data /Record into the table*/
-INSERT into <Table Name> (ID,Name1,Age,Limit) values (001,'Mahesh',40,75)
-INSERT into <Table Name> values (003,'RRR',77,90), (004,'TT',77,90)
-
-14.	/*INSERT-AS-SELECT statement allows to insert into table using the ALL input from another table*/
-INSERT INTO <New Table name> (SELECT <Column name> from <Old Table name>)
-
-15.	/*INSERT-AS-SELECT with WHERE Condition statement allows to insert into table using the input from another table*/
+FOREIGN Key(Prod_ID) References Product (Prod_id);
+14. /*INSERT Command is used to Insert data /Record into the table*/
+INSERT into <Table Name> (ID,Name1,Age,Limit) values (001,'Mahesh',40,75),(002,NTR,99), (003,ANR, 98)   
+15. /*INSERT-AS-SELECT with WHERE Condition statement allows to insert into table using the input from another table*/
 INSERT INTO <New Table name> (SELECT <Column name> from <Old Table name> WHERE Column <Row Condition>)
-
-16.	/*INSERT-AS-SELECT statement allows to insert into table using the input from another table – This is for Specified columns*/
-INSERT INTO <New Table name> (<Column1,Column2..>) (SELECT (<Column1,Column2..> from Old Table Name)
-
-17.	/*Update or change the Row value in particular Column*/
+16. /*INSERT-AS-SELECT statement allows to insert into table using the input from another table – This is for Specified columns*/
+INSERT INTO <New Table name> (<Column1,Column2..>) (SELECT (<Column1, Column2..> from Old Table Name)
+17./*UPDATE or change the Row value in particular Column*/
 UPDATE <Table name> SET <Column name> = <Row Value> WHERE <Column name> = <Row Value>
 Ex: UPDATE SchoolB SET Age = 1 WHERE ID=3;
-
-18.	/*DELETE command help to delete Rows/Records in from database Table*/
+18. /*DELETE command help to delete Rows/Records in from database Table*/
 DELETE from <Table Name>  /*All data in Table*/
-DELATE From <Table Name> WHERE <Condition>
-
-19.	/*SELECT statement is used to select  the required data in Table*/ 
+DELETE from <Table Name> WHERE <Condition>
+19. /*SELECT statement is used to select the required data in Table*/ 
 SELECT * from <Table name>    /*All data from table*/
 SELECT TOP (3) * FROM <Table Name>   /*Top 3 data from table, Value 3 we can change*/
 SELECT <Column1, Column2> FROM <Table Name> /*If required specified columns*/
 SELECT TOP (3)<Column1, Column2> FROM <Table Name> /*If required specified columns*/
-
-20.	/*ORDER BY – Data can get ASC or DESC*/
+20. /*ORDER BY – Data can get ASC or DESC*/
 SELECT * FROM <Table Name> ORDER BY <Column Name> ASC
 SELECT * FROM <Table Name> ORDER BY <Column Name> DESC
 SELECT TOP (2) * FROM <Table Name> ORDER BY <Column Name> DESC
-
-21.	/*AND – Used to combine2 conditions and fetch the results which satisfy both conditions*/
+Creating Views ===========
+/* A VIEW named as Virtual table. A view takes output of a query & treats it as a table*/
+21. CREATE VIEW <View name> AS SELECT <Column1, Column2…> FROM <Table name>
+Ex: CREATE VIEW TestView1 AS SELECT ID, Names FROM Employee
+Logical Operators==========
+21. /*AND – Used to combine2 conditions and fetch the results which satisfy both conditions*/
 SELECT * FROM <Table Name> WHERE <Column Name> = <Value> AND <Column Name> = <Value>
-
-22.	/*OR – Used to combine 2 or more conditions & it fetches results with satisfy any one of conditions*/
+22. /*OR – Used to combine 2 or more conditions & it fetches results with satisfy any one of conditions*/
 SELECT * FROM <Table Name> WHERE <Column Name> = <Value> OR <Column Name> = <Value>
-
-23.	/*NOT – Used to negate conditions & fetch opposite of results with satisfy conditions*/
+23. /*NOT – Used to negate conditions & fetch opposite of results with satisfy conditions*/
 SELECT * FROM <Table Name> WHERE <Column Name> NOT IN <Column Name>
-
-24.	/*BETWEEN – Used to search for values that are within a set of values*/
+Comparison Comparator:=============
+24./*BETWEEN – Used to search for values that are within a set of values*/
 SELECT * FROM <Table Name> WHERE <Column Name> BETWEEN <Value> AND <Value> 
 EX : SELECT * FROM EMPLOYEE WHERE Salary BETWEEN 1000 AND 5000
-
-25.	/*IN – It is used when we want to check/fetch values from multiple values in single statement*/
+25. /*IN – It is used when we want to check/fetch values from multiple values in single statement*/
 SELECT * From <Table name> WHERE <Column name> IN (Values, Values) 
+26. /*NOT IN – It is used to get the data in opposite of IN Statement*/
+SELECT * From <Table name> WHERE <Column name> NOT IN (Values, Values)
 
-26.	/* ” > Greater-then” – Fetches values greater then given values*/
+27. /* ” > Greater-then” – Fetches values greater then given values*/
 SELECT * From <Table name> WHERE <Column name>  > 20000
-
-27.	/* ” < Less-then” – Fetches values less then given values*/
+28. /* ” < Less-then” – Fetches values less then given values*/
 SELECT * From <Table name> WHERE <Column name>  < 20000
-
-28.	/* ” = ” – Fetches values equal to  given values*/
+29. /* ” = ” – Fetches values equal to  given values*/
 SELECT * From <Table name> WHERE <Column name>  = 20000
-
-29.	/* ” <= ” – Fetches values less then or equal to given values*/
+30. /* ” <= ” – Fetches values less then or equal to given values*/
 SELECT * From <Table name> WHERE <Column name>  =< 20000
-
-30.	/* ” >= ” – Fetches values greater then or equal to given values*/
+31./* ” >= ” – Fetches values greater than or equal to given values*/
 SELECT * From <Table name> WHERE <Column name>  >= 20000
-
-31.	/*LIKE – Used to perform wild card searches of valid search string values*/
+32. /*LIKE – Used to perform wild card searches of valid search string values*/
 SELECT * From <Table name> WHERE <Column name> LIKE ‘%C’ (Here C is last letter of value)
 SELECT * From <Table name> WHERE <Column name> LIKE ‘C%’ (Here C is start letter of value)
 SELECT * From <Table name> WHERE <Column name> LIKE ‘C%C’ (Here C is start & End letter of value)
-
-32.	/*IS operator is used to search the NULL ot NOT NULL vales in Table*/
+33. /*IS operator is used to search the NULL or NOT NULL vales in Table*/
 SELECT * From <Table name> WHERE <Column name> IS NULL
 SELECT * From <Table name> WHERE <Column name> IS NOT NULL
-
-33.	/*Inner Join OR Simple join used to retrieve the common data from 2 or more tables */
+CASE Expression===========
+ /* Used as a type of IF-THEN-ELSE statement. Case used to provide if-then-else type of logic to SQL*/
+34. SELECT CASE <Column name: Location> 
+WHEN <Value:‘Chennai’> THEN <Value:‘Tamilnadu’>
+WHEN <Value:‘Bangalore’> THEN <Value:‘Karnataka’>
+ELSE ‘No Idea’
+END from <Table name>
+JOINS ===========
+35. /*INNER JOIN OR Simple join used to retrieve the common data from 2 or more tables */
 SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>Inner join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
 Ex: SELECT School.age, collage.rank from School Inner join collage ON School.Names = Collage.Peru;
-
-34.	/* This Left join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join.*/
+36. /* This LEFT JOIN returns all the rows of the table on the left side of the join and matching rows for the table on the right side of join.*/
 SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>Left join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
-
-35.	/* This Right join returns all the rows of the table on the Right side of the join and matching rows for the table on the left side of join.*/
+37. /* This RIGHT JOIN returns all the rows of the table on the Right side of the join and matching rows for the table on the left side of join.*/
 SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>right join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
-
-36.	/*Left Outer Join : this is returns rows to the left (t1) even if there are no rows on the right (t2) of the clause*/
+38. /*LEFT OUTER JOIN : this is returns rows to the left (t1) even if there are no rows on the right (t2) of the clause*/
 SELECT <Column list>from <Table Name1> AS t1 Left outer join <Table name2> as t2 ON t1.column.name = t2.column_name;
-
-37.	/*This  RIGHT OUTER JOIN  returns all the rows from right table are combined with the matching rows of left table .If you get no column matching in the left table .it returns null value. */
+39. /*This  RIGHT OUTER JOIN  returns all the rows from right table are combined with the matching rows of left table .If you get no column matching in the left table .it returns null value. */
 SELECT <Column list>from <Table Name1> AS t1 Right outer join <Table name2> as t2 ON t1.column.name = t2.column_name;
-
-38.	/* The FULL OUTER JOIN keyword returns all matching records from both tables whether the other table matches or not*/
+40./* The FULL OUTER JOIN keyword returns all matching records from both tables whether the other table matches or not*/
 SELECT <Column list>from <Table Name1> AS t1 FULL OUTER JOIN  <Table name2> as t2 ON t1.column.name = t2.column_name;
-
-39.	/* The CROSS JOIN is used to generate a paired combination of each row of the first table with each row of the second table */
+41. /* The CROSS JOIN is used to generate a paired combination of each row of the first table with each row of the second table */
 SELECT <Column list>from <Table Name1> AS t1 CROSS JOIN  <Table name2> as t2;
+FUNCTIONS
+Conversion Function: /*The conversion built-in function are used to convert a expr from one data type to another data type*/ 
+42. CASE :  CASE (expr AS datatype)
+43. CONVERT : CONVERT (datatype, expr)
+44. PARSE : PARSE (Value AS datatype)
+45. TRY_ CAST : TRY_CASE (expr AS datatype)
+46. TRY_CONVERT : TRY_CONVERT (datatype, expr)
+47. TRY_PARSE : TRY_PARSE (Value AS datatype)
+Logical Functions: /*Logical functions can be used to display one of several values based on logical Condition*/
+48. CHOOSE: CHOOSE (Index, value1, Value2, Value3) Ex: SELECT CHOOSE  (3, ‘rama’,’kama’,’noma’,’yama’) = Result:noma
+49. IFF: IFF (Boolean_expr, True value, False Value) Ex: SELECT IIF (1>10, ‘True’, ‘False’) = Result: False
 
-40.	/*Stored Procedure*/
-CREATE PROCEDURE procedure_name
-AS
+50. MATH Functions:
+1.	ABS: ABS(num_expr)                                 2. RAND: RAND(seed)                          3. EXP(float_expr)       4. SQRT: SQRT(float_expr)
+5. ROUND: ROUND (num_expr, length)         6. FLOOR: FLOOR (num_expr)           7. SIGN: SIGN (num_expr)
+8. CEILING: CEILING(num_expr)                       9. SQUARE: SQUARE (float_expr)     10. POWER: POWER(float_expr, y)
+Aggregate Functions OR Group function
+51. AVG : SELECT AVG <columnname> FROM <Tablename>   EX: SELECT AVG Salary FROM Employee /*Gives Avg value in the Column*/
+52. MIN : SELECT MIN <column_name> FROM <Table_name>   EX: SELECT MIN Salary FROM Employee /*Gives Min. value in the Column*/
+53. MAX : SELECT MAX <column_name> FROM <Table_name>   EX: SELECT MAX Salary FROM Employee /*Gives Max. value in the Column*/
+54. COUNT: SELECT COUNT<column_name>FROM<Table_name>EX:SELECT COUNT Salary FROM Emp /*count of rows in Column*/
+String Functions: /*In string operation on a string input value and return a string or numeric value/
+56. LTRIM: SELECT LTRIM (‘       abc’) Ans: abc  /*It removes the leading blanks*/
+57. RTRIM: SELECT RTRIM (‘       abc      ‘) Ans:     abc /* It removes the trailing blanks */ 
+58. REVERSE: SELECT REVERSE (‘Value’) Ex SELECT REVERSE (‘ABC’) Ans : CBA  /*Returns the reverse order of a string value*/
+59. UPPER: SELECT UPPER (‘abc’) Ans: ABC  /*It is used to convert lower case data into upper case*/
+60. LOWER: SELECT LOWER (‘ABC’) Ans:abc /*It is used to convert upper case data into lower case*/
+61. LEN: SELECT LEN (‘abc’) Ans: 3  /*Returns the number of characters in string excluding trailing blanks*/
+62. LEFT: SELECT LEFT (‘acb’, 1) Ans: a /*Returns the left part of a character string with specified number of character*/
+63. RIGHT: SELECT RIGHT (‘acb’, 1) Ans: b /*Returns the right part of a character string with specified number of character*/
+64. FORMAT: SELECT FORMAT Value, format [, culture]  /*Returns a value formatted with the specified format & optional culture*/
+65. SUBSTRING: SELECT SUBSTRING (expr, start, length) /*Returns a part of a character, text*/
+66. REPLACE: SELECT REPLACE (string, pattern, replacement) /*Replace a specified string value with another string value*/
+67. CHAR: SELECT CHAR (int_expr) /*Convert an Int ASCII code to a character*/
+68. CHARINDEX: SELECT CHARINDEX (exprToFind, exprToSearch[, start_location]) /*Searches an expression for another expression & returns its starting position if found */
+69. STR: SELECT STR (expression) /*Returns character data converted from numeric data*/
+70. CONCAT: SELECT CONCAT (str1, str2, str3..) /*Returns a string that is the result of concatenating 2 or more string values*/
+Date & Time functions /*these are perform an operation on data & time value & returns either string, numeric or data& time value*/
+71. SYSDATETIME : SELECT SYSDATETIME ()  /*Returns the system data & time*/
+72. CURRENT_TIMESTAMP: SELECT CURRENT_TIMESTAMP /*Returns a datetime value that contains data & time*/
+73. DATEPART: SELECT  DATAPART (datepart, date) Ex: SELECT  DATAPART (mm,’12-OCT-2021’) Ans:10 /*specified datepart of the specified date*/
+74. DAY/MONTH/YEAR: SELECT DAY(date)/MONTH(date)/YEAR(date) /*Returns integer that represents day/month/year part of specified date*/
+75. DATEDIFF: SELECT DATEDIFF (datepart, Startdate, enddate) /*It is returns date or time boundaries that are crossed b/w two specified dates*/
+76. DAREADD: SELECT DATEADD (datepart, number, date) Ex: SELECT DATEADD (mm, 2, ‘12/31/2021’)
+ /*Returns a new datetime value by adding intervals to the specified datepart of the specified date*/
+77. User defined functions (UDF)
+/*User function in programming languages, user defined function are compact pieces of transact SQL code, which can accept parameters, perform complex calculation and return either a value, or a table
+Scalar Valued function: A scalar valued function I used to return the single value only like integers or may be timestamp
+Table valued function: A table valued function is used for any number of the row set values. It is useful in the case of the returning multiple rows set at the same time
+Benefits of UDF: Modular programming, Faster execution & reduce the network traffic */
+Stored Procedure: /*It is set of sql statements with name, that has been created & stored in database*/
+79. /*Stored Procedure*/
+CREATE PROCEDURE procedure_name AS
 <sql_statement>
 GO;
-
-41. /*To Execute the stored procedure*/
+80. /*To Execute the stored procedure*/
 EXEC <procedure_name>;
-
-42. /*The SQL DISTINCT command is used with SELECT key word to retrieve only distinct or unique data*/
+81. /*Stored Procedure in Dynamic way*/
+CREATE Procedure < Dynamic Procedure Name>
+@Column_Name1 int,
+@Column_Name2 Varchar(50)
+AS
+INSERT INTO (Column name1, Column name2) Values (@Column name1, @Column name2)
+GO
+EXEC <Dynamic Procedure Name> <Value for Column_Name1>, <Value for Column_Name2>
+Window Function or Analytic Function: /*Used to perform the data analysis calculations*/
+82. RANK:
+SELECT e.*, RANK () Over (Partition by <Column name> order by <Column name> DESC) as <New column> from <Table name>
+SELECT e.*, RANK () Over (Partition by <Column name> order by <Column name> ASC) as <New column> from <Table name>
+83. DENSE_RANK:
+SELECT e.*, DENCE_RANK () Over (Partition by <Column name> order by <Column name> DESC) as <New column> from <Table name>
+SELECT e.*, DENCE_RANK () Over (Partition by <Column name> order by <Column name> ASC) as <New column> from <Table name>
+84. ROW_NUMBER:
+Ex: SELECT e.*, Row_Number () Over () as <New column> from <Table name>
+Ex: SELECT e.*, Row_Number () Over (Partition by <Column name>) as <New column> from <Table name>
+Ex: SELECT e.*, Row_Number () Over (Partition by <Column name> order by <Column name>) as <New column> from <Table name>
+85. LEAD: 
+SELECT e.*, LEAD () Over () as <New column> from <Table name>
+Ex: SELECT e.*, LEAD () Over (Partition by <Column name>) as <New column> from <Table name>
+Ex: SELECT e.*, LEAD () Over (Partition by <Column name> order by <Column name>) as <New column> from <Table name>
+86. LAG:
+SELECT e.*, LEG () Over () as <New column> from <Table name>
+Ex: SELECT e.*, LEG () Over (Partition by <Column name>) as <New column> from <Table name>
+Ex: SELECT e.*, LEG () Over (Partition by <Column name> order by <Column name>) as <New column> from <Table name>
+87. Triggers: 
+/*A trigger is a special kind of stored procedure that automatically executes when an event occurs in the database server, DML triggers execute when a user tries to modify date through a data manipulation language(DML) event.
+Benefits of Triggers:  
+1.	Provides alternative methods for implementing referential integrity constraint.
+2.	Restricts/control updates on the database objects.
+3.	Can be used to publish information about database (startup/Shutdown) to subscribers*/
+88. /*The SQL DISTINCT command is used with SELECT key word to retrieve only distinct or unique data*/
 (There is no difference between DISTINCT and UNIQUE)
 SELECT DISTINCT column_name ,column_name  FROM  table_name;
-
-43. /*The SQL COUNT() is a function that returns the number of records of the table in the output*/
-SELECT COUNT(column_name) FROM table_name;  
-
-44. /*The SQL FIRST() function is used to return the first value of the selected column*/
+89. /*The SQL FIRST() function is used to return the first value of the selected column.*/
 SELECT FIRST(column_name) FROM table_name;  
-
-45. /*The LAST() function is used to return the last value of the specified column*/
+90. /*The LAST() function is used to return the last value of the specified column.*/
 SELECT LAST (column_name) FROM table_name;  
-
-46. /*SELECT RANDOM() function returns the random row*/
+91. /*SELECT RANDOM() function returns the random row*/
 SELECT TOP 1 column FROM table  ORDER BY NEW ID()
-
-47. /*SQL IN is an operator used in a SQL query to help reduce the need to use multiple SQL "OR" conditions*/
+92. /*SQL IN is an operator used in a SQL query to help reduce the need to use multiple SQL "OR" conditions*/
 SELECT * FROM students  WHERE students_name IN ( Amit , Raghav, Rajeev)  
-
-48. /*DATE is used to retrieve a date from a database*/
+93. /*DATE is used to retrieve a date from a database*/
 SELECT * FROM  table-name WHERE your date-column >= '2013-12-12'
 
-49./* It is used in a SQL query to return summed value of an expression*/
+94./* It is used in a SQL query to return summed value of an expression*/
 SELECT SUM (expression) FROM tables  WHERE conditions;
-
-50. /*The DESC command is used to sort the data returned in descending order*/
+94. The DESC command is used to sort the data returned in descending order.
 SELECT*FROMCustomersORDER BY CustomerName DESC;
-
-51. /*The ASC command is used to sort the data returned in descending order*/
-SELECT*FROMCustomersORDER BY CustomerName ASC;
-
-52. /*The AVG() function returns the average value of a numeric column*/
+96. The ASC command is used to sort the data returned in descending order.
+SELECT * FROM Customers ORDER BY Customer Name ASC;
+97. /*The AVG() function returns the average value of a numeric column*/
 SELECT AVG(column_name) FROM table_name WHERE condition;
-
-53./* SQL aliases are used to give a table, or a column in a table, a temporary name*/
+98./* SQL ALIASES are used to give a table, or a column in a table, a temporary name*/
 SELECT column_name AS alias_name FROM table_name;
-
-54. /*The CREATE INDEX statement is used to create indexes in tables*/
+99. /*The CREATE INDEX statement is used to create indexes in tables*/
 CREATE INDEX index_name ON table_name (column1, column2, ...);
-
-55./* The CHECK constraint is used to limit the value range that can be placed in a column*/
+100./* The CHECK constraint is used to limit the value range that can be placed in a column*/
 CREATE TABLE Persons (
     ID int NOT NULL,
     LastName varchar(255) NOT NULL,
     FirstName varchar(255),
     Age int CHECK (Age>=18)
 );
-
-
