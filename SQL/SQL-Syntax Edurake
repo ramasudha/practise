@@ -93,10 +93,14 @@ SELECT TOP (3)<Column1, Column2> FROM <Table Name> /*If required specified colum
 SELECT * FROM <Table Name> ORDER BY <Column Name> ASC
 SELECT * FROM <Table Name> ORDER BY <Column Name> DESC
 SELECT TOP (2) * FROM <Table Name> ORDER BY <Column Name> DESC
+
+
 Creating Views ===========
 /* A VIEW named as Virtual table. A view takes output of a query & treats it as a table*/
 21. CREATE VIEW <View name> AS SELECT <Column1, Column2…> FROM <Table name>
 Ex: CREATE VIEW TestView1 AS SELECT ID, Names FROM Employee
+
+
 Logical Operators==========
 21. /*AND – Used to combine2 conditions and fetch the results which satisfy both conditions*/
 SELECT * FROM <Table Name> WHERE <Column Name> = <Value> AND <Column Name> = <Value>
@@ -104,6 +108,8 @@ SELECT * FROM <Table Name> WHERE <Column Name> = <Value> AND <Column Name> = <Va
 SELECT * FROM <Table Name> WHERE <Column Name> = <Value> OR <Column Name> = <Value>
 23. /*NOT – Used to negate conditions & fetch opposite of results with satisfy conditions*/
 SELECT * FROM <Table Name> WHERE <Column Name> NOT IN <Column Name>
+
+
 Comparison Comparator:=============
 24./*BETWEEN – Used to search for values that are within a set of values*/
 SELECT * FROM <Table Name> WHERE <Column Name> BETWEEN <Value> AND <Value> 
@@ -123,6 +129,8 @@ SELECT * From <Table name> WHERE <Column name>  = 20000
 SELECT * From <Table name> WHERE <Column name>  =< 20000
 31./* ” >= ” – Fetches values greater than or equal to given values*/
 SELECT * From <Table name> WHERE <Column name>  >= 20000
+
+
 32. /*LIKE – Used to perform wild card searches of valid search string values*/
 SELECT * From <Table name> WHERE <Column name> LIKE ‘%C’ (Here C is last letter of value)
 SELECT * From <Table name> WHERE <Column name> LIKE ‘C%’ (Here C is start letter of value)
@@ -130,6 +138,8 @@ SELECT * From <Table name> WHERE <Column name> LIKE ‘C%C’ (Here C is start &
 33. /*IS operator is used to search the NULL or NOT NULL vales in Table*/
 SELECT * From <Table name> WHERE <Column name> IS NULL
 SELECT * From <Table name> WHERE <Column name> IS NOT NULL
+
+
 CASE Expression===========
  /* Used as a type of IF-THEN-ELSE statement. Case used to provide if-then-else type of logic to SQL*/
 34. SELECT CASE <Column name: Location> 
@@ -137,6 +147,8 @@ WHEN <Value:‘Chennai’> THEN <Value:‘Tamilnadu’>
 WHEN <Value:‘Bangalore’> THEN <Value:‘Karnataka’>
 ELSE ‘No Idea’
 END from <Table name>
+
+
 JOINS ===========
 35. /*INNER JOIN OR Simple join used to retrieve the common data from 2 or more tables */
 SELECT <Table Name1>.<Required Column name>, <Table name2>.<Required Column name>from <Table Name1>Inner join <Table name2>ON <Table name1>.<Matching Column name>= <Table name2>.< Matching Column name>;
@@ -153,6 +165,8 @@ SELECT <Column list>from <Table Name1> AS t1 Right outer join <Table name2> as t
 SELECT <Column list>from <Table Name1> AS t1 FULL OUTER JOIN  <Table name2> as t2 ON t1.column.name = t2.column_name;
 41. /* The CROSS JOIN is used to generate a paired combination of each row of the first table with each row of the second table */
 SELECT <Column list>from <Table Name1> AS t1 CROSS JOIN  <Table name2> as t2;
+
+
 FUNCTIONS
 Conversion Function: /*The conversion built-in function are used to convert a expr from one data type to another data type*/ 
 42. CASE :  CASE (expr AS datatype)
@@ -169,11 +183,14 @@ Logical Functions: /*Logical functions can be used to display one of several val
 1.	ABS: ABS(num_expr)                                 2. RAND: RAND(seed)                          3. EXP(float_expr)       4. SQRT: SQRT(float_expr)
 5. ROUND: ROUND (num_expr, length)         6. FLOOR: FLOOR (num_expr)           7. SIGN: SIGN (num_expr)
 8. CEILING: CEILING(num_expr)                       9. SQUARE: SQUARE (float_expr)     10. POWER: POWER(float_expr, y)
+
 Aggregate Functions OR Group function
 51. AVG : SELECT AVG <columnname> FROM <Tablename>   EX: SELECT AVG Salary FROM Employee /*Gives Avg value in the Column*/
 52. MIN : SELECT MIN <column_name> FROM <Table_name>   EX: SELECT MIN Salary FROM Employee /*Gives Min. value in the Column*/
 53. MAX : SELECT MAX <column_name> FROM <Table_name>   EX: SELECT MAX Salary FROM Employee /*Gives Max. value in the Column*/
 54. COUNT: SELECT COUNT<column_name>FROM<Table_name>EX:SELECT COUNT Salary FROM Emp /*count of rows in Column*/
+
+
 String Functions: /*In string operation on a string input value and return a string or numeric value/
 56. LTRIM: SELECT LTRIM (‘       abc’) Ans: abc  /*It removes the leading blanks*/
 57. RTRIM: SELECT RTRIM (‘       abc      ‘) Ans:     abc /* It removes the trailing blanks */ 
@@ -239,6 +256,8 @@ Ex: SELECT e.*, LEG () Over (Partition by <Column name>) as <New column> from <T
 Ex: SELECT e.*, LEG () Over (Partition by <Column name> order by <Column name>) as <New column> from <Table name>
 87. Triggers: 
 /*A trigger is a special kind of stored procedure that automatically executes when an event occurs in the database server, DML triggers execute when a user tries to modify date through a data manipulation language(DML) event.
+
+
 Benefits of Triggers:  
 1.	Provides alternative methods for implementing referential integrity constraint.
 2.	Restricts/control updates on the database objects.
